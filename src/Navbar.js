@@ -12,6 +12,10 @@ const Navbar = ({ avatar, login, setLogin }) => {
         setCurrentAvatar(avatar);
     }, [avatar]);
 
+    useEffect(() => {
+        setCurrentAvatar('fa-user-astronaut');
+    }, [login]);
+
 
     const toggleDropdown = () => {
         setOpen(prev => !prev);
@@ -26,7 +30,7 @@ const Navbar = ({ avatar, login, setLogin }) => {
 
         setLogin(false);
         setOpen(false);
-        history.push('/');
+        history.push('/AstroNova');
     };
 
     useEffect(() => {
@@ -43,14 +47,14 @@ const Navbar = ({ avatar, login, setLogin }) => {
 
                 <div id="link">
                     <ul className="nav">
-                        <li className={`item fade-in ${location.pathname === '/' ? 'active-link' : ''}`}>
-                            <Link to="/">Home</Link>
+                        <li className={`item fade-in ${location.pathname === '/AstroNova' ? 'active-link' : ''}`}>
+                            <Link to="/AstroNova">Home</Link>
                         </li>
-                        <li className={`item fade-in ${location.pathname === '/schedule' ? 'active-link' : ''}`}>
-                            <Link to="/schedule">Schedule</Link>
+                        <li className={`item fade-in ${location.pathname === '/AstroNova/schedule' ? 'active-link' : ''}`}>
+                            <Link to="/AstroNova/schedule">Schedule</Link>
                         </li>
-                        <li className={`item fade-in ${location.pathname === '/teams' ? 'active-link' : ''}`}>
-                            <Link to="/teams">Teams</Link>
+                        <li className={`item fade-in ${location.pathname === '/AstroNova/teams' ? 'active-link' : ''}`}>
+                            <Link to="/AstroNova/teams">Teams</Link>
                         </li>
                     </ul>
                 </div>
@@ -65,11 +69,11 @@ const Navbar = ({ avatar, login, setLogin }) => {
 
                     {open && (
                         <div id="dropdown-menu" className="dropdown-menu">
-                            <Link to={"/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
+                            <Link to={"/AstroNova/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
                             {!login ? (
-                                <Link to="/account/login" onClick={() => setOpen(false)}>Log In</Link>
+                                <Link to="/AstroNova/account/login" onClick={() => setOpen(false)}>Log In</Link>
                             ) : (
-                                <Link to="/" className="logout-btn" onClick={handleLogout}>Log Out</Link>
+                                <Link to="/AstroNova" className="logout-btn" onClick={handleLogout}>Log Out</Link>
                             )}
                         </div>
                     )}

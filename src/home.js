@@ -17,8 +17,8 @@ const Home = () => {
         <h1>ASTRONOVA</h1>
         <p>Journey through space, science, and discovery</p>
         <div className="hero-buttons">
-          <Link to="/schedule"><button className='hero-btn'>Explore Events</button></Link>
-          <Link to={"/account" + (!login?"/register":"")}><button className='hero-btn'>Register Now</button></Link>
+          <Link to="/AstroNova/schedule"><button className='hero-btn'>Explore Events</button></Link>
+          <Link to={"/AstroNova/account" + (!login?"/register":"")}><button className='hero-btn'>Register Now</button></Link>
         </div>
       </div>
     </div>

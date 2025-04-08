@@ -28,7 +28,7 @@ const MyProfile = () => {
                 <p><strong>Name:</strong> {userData.name}</p>
                 <p><strong>Email:</strong> {userData.email}</p>
                 <p><strong>Phone:</strong> {userData.phone}</p>
-                <Link to="/account/edit">
+                <Link to="/AstroNova/account/edit">
                     <button className="profile-btn">
                         Edit Profile
                     </button>
