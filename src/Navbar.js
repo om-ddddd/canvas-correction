@@ -71,11 +71,21 @@ const Navbar = ({ avatar, login, setLogin }) => {
                         <i className={"fas " + currentAvatar}></i>
                     </button>
 
-                    {open && (
+                    {open && w<771 && (
                         <div id="dropdown-menu" className="dropdown-menu">
                             <Link to="/Astronova" onClick={() => setOpen(false)}>Home</Link>
                             <Link to="/Astronova/schedule" onClick={() => setOpen(false)}>Schedule</Link>
                             <Link to="/Astronova/teams" onClick={() => setOpen(false)}>Teams</Link>
+                            <Link to={"/AstroNova/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
+                            {!login ? (
+                                <Link to="/AstroNova/account/login" onClick={() => setOpen(false)}>Log In</Link>
+                            ) : (
+                                <Link to="/AstroNova" className="logout-btn" onClick={handleLogout}>Log Out</Link>
+                            )}
+                        </div>
+                    )}
+                    {open && w>770 && (
+                        <div id="dropdown-menu" className="dropdown-menu">
                             <Link to={"/AstroNova/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
                             {!login ? (
                                 <Link to="/AstroNova/account/login" onClick={() => setOpen(false)}>Log In</Link>
