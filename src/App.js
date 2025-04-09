@@ -13,22 +13,21 @@ function App() {
 
   const [avatar, setAvatar] = useState(localStorage.getItem('avatar') || "fa-user-astronaut");
   const [login, setLogin] = useState(localStorage.getItem('login') === 'true');
+    useEffect(() => {
+      const cursor = document.querySelector('.custom-cursor');
 
+      const moveCursor = (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      };
 
-  useEffect(() => {
-    const cursor = document.querySelector('.custom-cursor');
+      document.addEventListener('mousemove', moveCursor);
 
-    const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
+      return () => {
+        document.removeEventListener('mousemove', moveCursor);
+      };
+    }, []);
 
-    document.addEventListener('mousemove', moveCursor);
-
-    return () => {
-      document.removeEventListener('mousemove', moveCursor);
-    };
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('avatar', avatar);
