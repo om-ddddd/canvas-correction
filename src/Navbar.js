@@ -38,6 +38,21 @@ const Navbar = ({ avatar, login, setLogin }) => {
         setLogin(localStorage.getItem('login') === 'true')
     }, []);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            const dropdown = document.getElementById('dropdown-menu');
+            const button = document.querySelector('.profile-icon');
+            if (dropdown && !dropdown.contains(event.target) && !button.contains(event.target)) {
+                setOpen(false);
+            }
+        };
+    
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <header>
             <nav id="navbar">

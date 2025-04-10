@@ -11,6 +11,19 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
+  window.addEventListener("scroll", function () {
+    let navbar = document.querySelector("#navbar");
+  
+    if (window.scrollY > 50){
+      navbar.style.background = "rgba(20, 20, 20)";
+  
+      navbar.style.border = "1px solid #333;";
+    }
+    else{
+      navbar.style.background = "transparent";
+    }
+  });
+
   const [avatar, setAvatar] = useState(localStorage.getItem('avatar') || "fa-user-astronaut");
   const [login, setLogin] = useState(localStorage.getItem('login') === 'true');
     useEffect(() => {
